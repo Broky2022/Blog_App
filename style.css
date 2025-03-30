@@ -388,6 +388,73 @@ footer ul a:hover {
     place-items: center;
 }
 
+.empty__page {
+    height: 70vh;
+    display: grid;
+    place-content: center;
+}
+
+
+/* Form styles */
+.form__section {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+.form__section-container {
+    width: var(--form-width);
+    background: var(--color-gray-900);
+    padding: 3rem;
+    border-radius: var(--card-border-radius-2);
+}
+
+.alert__message {
+    padding: 0.8rem 1.4rem;
+    margin-bottom: 1rem;
+    border-radius: var(--card-border-radius-2);
+}
+
+.alert__message.error {
+    background: var(--color-red-light);
+    color: var(--color-red);
+}
+
+.alert__message.success {
+    background: var(--color-green-light);
+    color: var(--color-green);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form__control {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+input, textarea {
+    padding: 0.8rem 1.4rem;
+    background-color: var(--color-gray-900);
+    border-radius: var(--card-border-radius-2);
+    resize: none;
+    color: var(--color-white);
+    border: 1px solid var(--color-gray-700);
+}
+
+.form__section small {
+    margin-top: 1rem;
+    display: block;
+}
+
+.form__section small a {
+    color: var(--color-primary);
+}
+
 
 @media screen and (max-width: 1024px){
     .container {
@@ -511,6 +578,10 @@ footer ul a:hover {
     .search__bar-container {
         width: 60%;
     }
+
+    .form__section-container {
+        width: var(--container-width-md);
+    }
 }
 
 
@@ -552,5 +623,10 @@ footer ul a:hover {
     .singlepost__container {
         background-color: transparent;
         padding: 0;
+    }
+
+    .form__section-container {
+        width: var(--container-width-md);
+        padding: 2rem;
     }
 }
