@@ -1,8 +1,10 @@
 # Blog_App
 > [Classroom](https://classroom.google.com/u/0/c/NzQ5OTkyMzU3MTQy)
 > [Docs](https://docs.google.com/spreadsheets/d/1UzBbwM3lt-sTwVuCZHm5MYIAFbV_Y6HGWXxu6OOtbzk/edit?gid=801622215#gid=801622215)
+```
 - 7/4/25 Nộp BC + Source code
 - 7h30, 9/4/25 Báo cáo đồ án
+```
 
 ## Overview
 
