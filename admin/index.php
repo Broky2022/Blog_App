@@ -14,7 +14,7 @@ include 'shares/header.php';
                     </a>
                 </li>
                 <li>
-                    <a href="index.php"><i class="uil uil-postcard"></i>
+                    <a href="index.php" class="active"><i class="uil uil-postcard"></i>
                         <h5>Manage Posts</h5>
                     </a>
                 </li>
@@ -24,7 +24,7 @@ include 'shares/header.php';
                     </a>
                 </li>
                 <li>
-                    <a href="manage-users.php" class="active"><i class="uil uil-users-alt"></i>
+                    <a href="manage-users.php"><i class="uil uil-users-alt"></i>
                         <h5>Manage User</h5>
                     </a>
                 </li>
@@ -41,38 +41,34 @@ include 'shares/header.php';
             </ul>
         </aside>
         <main>
-            <h2>Manage Users</h2>
+            <h2>Manage Posts</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Username</th>
+                        <th>Title</th>
+                        <th>Category</th>
                         <th>Edit</th>
                         <th>Delete</th>
-                        <th>Admin</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Nguyen Hoang Ky</td>
-                        <td>achiever</td>
-                        <td><a href="edit-user.php" class="btn sm">Edit</a></td>
+                        <td>Sự Nghiệp Chướng</td>
+                        <td>Music</td>
+                        <td><a href="edit-post.php" class="btn sm">Edit</a></td>
                         <td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
-                        <td>Yes</td>
                     </tr>
                     <tr>
-                        <td>Le Minh Ngoc</td>
-                        <td>achiever</td>
-                        <td><a href="edit-user.php" class="btn sm">Edit</a></td>
+                        <td>Nâng lyly</td>
+                        <td>Music</td>
+                        <td><a href="edit-post.php" class="btn sm">Edit</a></td>
                         <td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
-                        <td>Yes</td>
                     </tr>
                     <tr>
-                        <td>Phan Hoang Minh Thuan</td>
-                        <td>achiever</td>
-                        <td><a href="edit-user.php" class="btn sm">Edit</a></td>
+                        <td>Á đù Anh Seng</td>
+                        <td>Music</td>
+                        <td><a href="edit-post.php" class="btn sm">Edit</a></td>
                         <td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
-                        <td>Yes</td>
                     </tr>
                 </tbody>
             </table>

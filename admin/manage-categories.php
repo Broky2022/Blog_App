@@ -24,7 +24,7 @@ include 'shares/header.php';
                     </a>
                 </li>
                 <li>
-                    <a href="manage-users.php" class="active"><i class="uil uil-users-alt"></i>
+                    <a href="manage-users.php"><i class="uil uil-users-alt"></i>
                         <h5>Manage User</h5>
                     </a>
                 </li>
@@ -34,45 +34,37 @@ include 'shares/header.php';
                     </a>
                 </li>
                 <li>
-                    <a href="manage-categories.php"><i class="uil uil-list-ul"></i>
+                    <a href="manage-categories.php" class="active"><i class="uil uil-list-ul"></i>
                         <h5>Manage Categories</h5>
                     </a>
                 </li>
             </ul>
         </aside>
         <main>
-            <h2>Manage Users</h2>
+            <h2>Manage Categories</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Username</th>
+                        <th>Title</th>
                         <th>Edit</th>
                         <th>Delete</th>
-                        <th>Admin</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Nguyen Hoang Ky</td>
-                        <td>achiever</td>
-                        <td><a href="edit-user.php" class="btn sm">Edit</a></td>
+                        <td>Du Lịch</td>
+                        <td><a href="edit-category.php" class="btn sm">Edit</a></td>
                         <td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
-                        <td>Yes</td>
                     </tr>
                     <tr>
-                        <td>Le Minh Ngoc</td>
-                        <td>achiever</td>
-                        <td><a href="edit-user.php" class="btn sm">Edit</a></td>
+                        <td>Wild Life</td>
+                        <td><a href="edit-category.php" class="btn sm">Edit</a></td>
                         <td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
-                        <td>Yes</td>
                     </tr>
                     <tr>
-                        <td>Phan Hoang Minh Thuan</td>
-                        <td>achiever</td>
-                        <td><a href="edit-user.php" class="btn sm">Edit</a></td>
+                        <td>Âm nhạc</td>
+                        <td><a href="edit-category.php" class="btn sm">Edit</a></td>
                         <td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
-                        <td>Yes</td>
                     </tr>
                 </tbody>
             </table>
