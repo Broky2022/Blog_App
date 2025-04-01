@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Trang web blog</title>
-    <link rel="stylesheet" href="./style.css" />
+    <title>Trang web tin tức</title>
+    <link rel="stylesheet" href="css/style.css" />
     <link
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
@@ -17,28 +17,28 @@
   <body>
     <nav>
       <div class="container nav__container">
-        <a href="index.html" class="nav__logo">Blog Web</a>
+        <a href="index.php" class="nav__logo">Blog Web</a>
         <ul class="nav__items">
           <li class="nav__item">
-            <a href="blog.html" class="nav__link">Blog</a>
+            <a href="blog.php" class="nav__link">Blog</a>
           </li>
           <li class="nav__item">
-            <a href="about.html" class="nav__link">About</a>
+            <a href="about.php" class="nav__link">About</a>
           </li>
           <li class="nav__item">
-            <a href="services.html" class="nav__link">Services</a>
+            <a href="services.php" class="nav__link">Services</a>
           </li>
           <li class="nav__item">
-            <a href="contact.html" class="nav__link">Contact</a>
+            <a href="contact.php" class="nav__link">Contact</a>
           </li>
-          <!-- <li class="nav__item"><a href="signin.html" class="nav__link">Sign In</a></li> -->
+          <!-- <li class="nav__item"><a href="signin.php" class="nav__link">Sign In</a></li> -->
           <li class="nav__profile">
             <div class="avatar">
               <img src="./images/avt.jpg" />
             </div>
             <ul>
-              <li><a href="dashboard.html">Dashboard</a></li>
-              <li><a href="logout.html">Sign Out</a></li>
+              <li><a href="dashboard.php">Dashboard</a></li>
+              <li><a href="logout.php">Sign Out</a></li>
             </ul>
           </li>
         </ul>
@@ -53,10 +53,10 @@
           <img src="./images/01.jpg" />
         </div>
         <div class="post__info">
-          <a href="category-posts.html" class="category__button"
+          <a href="category-posts.php" class="category__button"
             >Báo tuổi trẻ</a
           >
-          <h2 class="post__title"><a href="post.html">Vấn đề của GenZ</a></h2>
+          <h2 class="post__title"><a href="post.php">Vấn đề của GenZ</a></h2>
           <p class="post_body">
             GenZ là thế hệ sinh sau Millenials, họ sinh ra trong thời đại công
             nghệ phát triển mạnh mẽ, họ có xu hướng sử dụng công nghệ nhiều hơn,
@@ -82,9 +82,9 @@
             <img src="./images/02.jpg" />
           </div>
           <div class="post__infor">
-            <a href="category-posts.html" class="category__button">Wild Life</a>
+            <a href="category-posts.php" class="category__button">Wild Life</a>
             <h3 class="post__title">
-              <a href="post.html"
+              <a href="post.php"
                 >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim,
                 tempore.</a
               >
@@ -109,9 +109,9 @@
             <img src="./images/03.png" />
           </div>
           <div class="post__infor">
-            <a href="category-posts.html" class="category__button">Wild Life</a>
+            <a href="category-posts.php" class="category__button">Wild Life</a>
             <h3 class="post__title">
-              <a href="post.html"
+              <a href="post.php"
                 >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim,
                 tempore.</a
               >
@@ -136,9 +136,9 @@
             <img src="./images/04.png" />
           </div>
           <div class="post__infor">
-            <a href="category-posts.html" class="category__button">Wild Life</a>
+            <a href="category-posts.php" class="category__button">Wild Life</a>
             <h3 class="post__title">
-              <a href="post.html"
+              <a href="post.php"
                 >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim,
                 tempore.</a
               >

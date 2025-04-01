@@ -445,6 +445,10 @@ footer ul a:hover {
     color: var(--color-green);
 }
 
+.alert__message.lg {
+    text-align: center;
+}
+
 /* form {
     display: flex;
     flex-direction: column;
