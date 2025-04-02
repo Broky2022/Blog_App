@@ -1,4 +1,5 @@
 <?php
+    session_start();
     define('ROOT_URL', 'http://localhost/Blog_App/');
     define('DB_HOST', 'localhost');
     define('DB_USER', 'admin'); // user sửa dụng để kết nối đến database
