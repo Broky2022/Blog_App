@@ -8,7 +8,7 @@ require '../config/database.php';
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Trang web tin tức</title>
-  <link rel="stylesheet" href="<?= ROOT_URL ?>/css/style.css" />
+  <link rel="stylesheet" href="<?= ROOT_URL ?>css/style.css" />
   <link
     rel="stylesheet"
     href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
