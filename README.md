@@ -40,6 +40,16 @@ Dự án này là một ứng dụng blog cơ bản với các chức năng qu�
 
 ```
 Blog_App/
+├── about.php               # Trang "About"
+├── blog.php                # Trang danh sách bài viết
+├── category-posts.php      # Trang bài viết theo danh mục
+├── contact.php             # Trang "Contact"
+├── index.php               # Trang chủ
+├── logout.php              # Xử lý đăng xuất
+├── post.php                # Trang chi tiết bài viết
+├── services.php            # Trang "Services"
+├── signin.php              # Trang đăng nhập
+├── signup.php              # Trang đăng ký
 ├── admin/                  # Chức năng quản trị
 │   ├── add-category.php    # Thêm danh mục
 │   ├── add-post.php        # Thêm bài viết
@@ -55,11 +65,11 @@ Blog_App/
 │   │   ├── database.php    # Kết nối cơ sở dữ liệu
 │   ├── shares/             # Tệp dùng chung (header, footer)
 │   │   ├── header.php      # Header cho admin
-│   │   ├── footer.php      # Footer cho admin
 ├── config/                 # Cấu hình chung
 │   ├── constains.php       # Hằng số (URL, thông tin DB)
 │   ├── database.php        # Kết nối cơ sở dữ liệu
 ├── controller/             # Xử lý logic
+│   ├── adduser-controller.php # Xử lý thêm người dùng
 │   ├── signin-controller.php # Xử lý đăng nhập
 │   ├── signup-controller.php # Xử lý đăng ký
 ├── css/                    # Tệp CSS
@@ -68,19 +78,9 @@ Blog_App/
 ├── js/                     # Tệp JavaScript
 │   ├── main.js             # Tương tác giao diện
 ├── shares/                 # Tệp dùng chung
-│   ├── header.php          # Header cho người dùng
 │   ├── footer.php          # Footer cho người dùng
-├── about.php               # Trang "About"
-├── blog.php                # Trang danh sách bài viết
-├── category-posts.php      # Trang bài viết theo danh mục
-├── contact.php             # Trang "Contact"
-├── index.php               # Trang chủ
-├── logout.php              # Xử lý đăng xuất
-├── post.php                # Trang chi tiết bài viết
-├── services.php            # Trang "Services"
-├── signin.php              # Trang đăng nhập
-├── signup.php              # Trang đăng ký
-└── README.md               # Tài liệu dự án
+│   ├── header.php          # Header cho người dùng
+├── README.md               # Tài liệu dự án
 ```
 
 ### Các chức năng chính
