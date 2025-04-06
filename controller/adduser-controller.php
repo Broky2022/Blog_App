@@ -108,7 +108,7 @@ if (isset($_POST['submit'])) {
         // }
 
         if (!mysqli_errno($conn)) {
-            $_SESSION['add-user-success'] = "User $firstname $lastname đã được thêm thành công!";
+            $_SESSION['add-user-success'] = "User $lastname $firstname đã được thêm thành công!";
             header('location: ' . ROOT_URL . 'admin/manage-users.php');
             exit;
         } else {
