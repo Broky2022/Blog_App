@@ -4,7 +4,7 @@ include 'shares/header.php';
 // lấy thông tin category từ database
 $query = "SELECT * FROM categories";
 $categories = mysqli_query($conn, $query);
-if (!$result) {
+if (!$categories) {
     echo "Error: " . mysqli_error($conn);
     exit;
 }
