@@ -1,11 +1,28 @@
 <?php
 include 'shares/header.php';
+
+//fetch all users from database
+$current_admin_id = $_SESSION['user-id'];
+if (!$conn) {
+    die("Kết nối database thất bại: " . mysqli_connect_error());
+}
+$query = "SELECT * FROM users WHERE NOT id = $current_admin_id";
+$users = mysqli_query($conn, $query);
 ?>
 
 <section class="dashboard">
+    <?php if (isset($_SESSION['add-user-success'])) : ?>
+        <div class="alert__message success container">
+            <p><?= $_SESSION['add-user-success'];
+                unset($_SESSION['add-user-success']);
+                ?>
+            </p>
+        </div>
+    <?php endif; ?>
     <div class="container dashboard__container">
         <button id="show__sidebar-btn" class="sidebar__toggle"><i class="uil uil-angle-right-b"></i></button>
         <button id="hide__sidebar-btn" class="sidebar__toggle"><i class="uil uil-angle-left-b"></i></button>
+
         <aside>
             <ul>
                 <li>
@@ -55,27 +72,15 @@ include 'shares/header.php';
                     </tr>
                 </thead>
                 <tbody>
+                    <?php while($user = mysqli_fetch_assoc($users)) : ?>
                     <tr>
-                        <td>Nguyen Hoang Ky</td>
-                        <td>achiever</td>
-                        <td><a href="edit-user.php" class="btn sm">Edit</a></td>
-                        <td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
-                        <td>Yes</td>
+                        <td><?= "{$user['lastname']} {$user['firstname']}" ?></td>
+                        <td><?= $user['username'] ?></td>
+                        <td><a href="<?= ROOT_URL ?>admin/edit-user.php?id=<?= $user['id'] ?>" class="btn sm">Edit</a></td>
+                        <td><a href="<?= ROOT_URL ?>admin/delete-user.php?id=<?= $user['id'] ?>" class="btn sm danger">Delete</a></td>
+                        <td><?php echo $user['is_admin'] ? '✅' : '❌' ?></td>
                     </tr>
-                    <tr>
-                        <td>Le Minh Ngoc</td>
-                        <td>achiever</td>
-                        <td><a href="edit-user.php" class="btn sm">Edit</a></td>
-                        <td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>Phan Hoang Minh Thuan</td>
-                        <td>achiever</td>
-                        <td><a href="edit-user.php" class="btn sm">Edit</a></td>
-                        <td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
-                        <td>Yes</td>
-                    </tr>
+                    <?php endwhile; ?>
                 </tbody>
             </table>
         </main>
