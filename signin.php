@@ -1,5 +1,6 @@
 <?php
 include 'config/constains.php';
+include 'config/google-oauth.php';
 
 $username_email = $_SESSION['signin-data']['username/email'] ?? null;
 $password = $_SESSION['signin-data']['password'] ?? null;
@@ -42,6 +43,11 @@ unset($_SESSION['signin-data']);
         <input type="text" name="username/email" value="<?= $username_email ?>" placeholder="Username or Email" />
         <input type="password" name="password" value="<?= $password ?>" placeholder="Password" />
         <button type="submit" name="submit" class="btn">Sign In</button>
+        <div class="form__social">
+          <a href="<?= $auth_url ?>" class="btn google">
+            <i class="uil uil-google"></i> Sign in with Google
+          </a>
+        </div>
         <small>Don't have an account? <a href="signup.php">Sign Up</a></small>
       </form>
     </div> 

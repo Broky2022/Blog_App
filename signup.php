@@ -1,5 +1,6 @@
 <?php
 include 'config/constains.php';
+include 'config/google-oauth.php';
 // Check for signup errors
 $signup_error = $_SESSION['signup'] ?? null;
 
@@ -56,6 +57,11 @@ unset($_SESSION['signup-data']);
           <input type="file" name="avatar" id="avatar" />
         </div>
         <button type="submit" name="submit" class="btn">Sign Up</button>
+        <div class="form__social">
+          <a href="<?= $auth_url ?>" class="btn google">
+            <i class="uil uil-google"></i> Sign up with Google
+          </a>
+        </div>
         <small>Already have an account? <a href="signin.php">Sign In</a></small>
       </form>
     </div>
