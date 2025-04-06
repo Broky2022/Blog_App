@@ -11,10 +11,27 @@ $users = mysqli_query($conn, $query);
 ?>
 
 <section class="dashboard">
+    <!-- thông báo thêm người dùng thành công -->
     <?php if (isset($_SESSION['add-user-success'])) : ?>
         <div class="alert__message success container">
             <p><?= $_SESSION['add-user-success'];
                 unset($_SESSION['add-user-success']);
+                ?>
+            </p>
+        </div>
+        <!-- thông báo sửa người dùng thành công -->
+        <?php elseif (isset($_SESSION['edit-user-success'])) : ?>
+        <div class="alert__message success container">
+            <p><?= $_SESSION['edit-user-success'];
+                unset($_SESSION['edit-user-success']);
+                ?>
+            </p>
+        </div>
+        <!-- thông báo sửa người dùng lỗi -->
+        <?php elseif (isset($_SESSION['edit-user-error'])) : ?>
+        <div class="alert__message success container">
+            <p><?= $_SESSION['eedit-user-errors'];
+                unset($_SESSION['edit-user-error']);
                 ?>
             </p>
         </div>
