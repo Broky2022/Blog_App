@@ -22,6 +22,7 @@ Dự án này là một ứng dụng blog cơ bản với các chức năng qu�
 - Cài đặt XAMPP và khởi động Apache, MySQL.
 - Tạo cơ sở dữ liệu blog và nhập thông tin vào constains.php.
 - Đặt thư mục dự án vào htdocs.
+- Cần tạo thêm folder images để khi sử dụng nó sẽ lưu ảnh vào đó
 - Truy cập http://localhost/Blog_App/ trên trình duyệt.
 
 ## Vài câu lệnh git:
