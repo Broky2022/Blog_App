@@ -246,10 +246,10 @@ nav button {
 }
 
 .category__buttons-container {
-    width: fit-content;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
+    justify-content: center;
 }
 
 
@@ -671,6 +671,9 @@ select {
 
     .featured__container {
         gap: 3rem;
+        display: flex; 
+        align-items: center; 
+        gap: 2rem;
     }
 
     .posts_container {
