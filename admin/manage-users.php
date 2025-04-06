@@ -30,8 +30,24 @@ $users = mysqli_query($conn, $query);
         <!-- thông báo sửa người dùng lỗi -->
         <?php elseif (isset($_SESSION['edit-user-error'])) : ?>
         <div class="alert__message success container">
-            <p><?= $_SESSION['eedit-user-errors'];
+            <p><?= $_SESSION['edit-user-errors'];
                 unset($_SESSION['edit-user-error']);
+                ?>
+            </p>
+        </div>
+        <!-- thông báo xóa người dùng thành công -->
+        <?php elseif (isset($_SESSION['delete-user-success'])) : ?>
+        <div class="alert__message success container">
+            <p><?= $_SESSION['delete-user-success'];
+                unset($_SESSION['delete-user-success']);
+                ?>
+            </p>
+        </div>
+        <!-- thông báo xóa người dùng không được -->
+        <?php elseif (isset($_SESSION['delete-user-error'])) : ?>
+        <div class="alert__message success container">
+            <p><?= $_SESSION['delete-user-errors'];
+                unset($_SESSION['delete-user-error']);
                 ?>
             </p>
         </div>
@@ -94,7 +110,7 @@ $users = mysqli_query($conn, $query);
                         <td><?= "{$user['lastname']} {$user['firstname']}" ?></td>
                         <td><?= $user['username'] ?></td>
                         <td><a href="<?= ROOT_URL ?>admin/edit-user.php?id=<?= $user['id'] ?>" class="btn sm">Edit</a></td>
-                        <td><a href="<?= ROOT_URL ?>admin/delete-user.php?id=<?= $user['id'] ?>" class="btn sm danger">Delete</a></td>
+                        <td><a href="<?= ROOT_URL ?>controller/delete-user-controller.php?id=<?= $user['id'] ?>" class="btn sm danger">Delete</a></td>
                         <td><?php echo $user['is_admin'] ? '✅' : '❌' ?></td>
                     </tr>
                     <?php endwhile; ?>
