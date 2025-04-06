@@ -13,6 +13,9 @@
     $conn->query("CREATE DATABASE IF NOT EXISTS " . DB_NAME . " DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;");
     $conn->query("USE " . DB_NAME . ";");
 
+    // Temporarily disable foreign key checks
+    $conn->query("SET FOREIGN_KEY_CHECKS=0;");
+
     // tạo categories table
     $conn->query("DROP TABLE IF EXISTS categories;");
     $conn->query("CREATE TABLE IF NOT EXISTS categories (
@@ -56,4 +59,7 @@
     $conn->query("ALTER TABLE posts
     ADD CONSTRAINT FK_blog_author FOREIGN KEY (author_id) REFERENCES users (id) ON DELETE CASCADE,
     ADD CONSTRAINT FK_blog_category FOREIGN KEY (category_id) REFERENCES categories (id) ON DELETE SET NULL;");
+
+    // Re-enable foreign key checks
+    $conn->query("SET FOREIGN_KEY_CHECKS=1;");
 ?>
