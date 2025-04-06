@@ -27,7 +27,7 @@ $categories = mysqli_query($conn, $query);
         </div>
         <!-- thông báo sửa người dùng lỗi -->
         <?php elseif (isset($_SESSION['edit-category-error'])) : ?>
-        <div class="alert__message success container">
+        <div class="alert__message error container">
             <p><?= $_SESSION['edit-category-errors'];
                 unset($_SESSION['edit-category-error']);
                 ?>
@@ -43,7 +43,7 @@ $categories = mysqli_query($conn, $query);
         </div>
         <!-- thông báo xóa người dùng không được -->
         <?php elseif (isset($_SESSION['delete-category-error'])) : ?>
-        <div class="alert__message success container">
+        <div class="alert__message error container">
             <p><?= $_SESSION['delete-category-errors'];
                 unset($_SESSION['delete-category-error']);
                 ?>

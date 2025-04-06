@@ -20,6 +20,38 @@ $posts = mysqli_query($conn, $query);
                 ?>
             </p>
         </div>
+        <!-- thông báo sửa bài viết thành công -->
+        <?php elseif (isset($_SESSION['edit-category-success'])) : ?>
+        <div class="alert__message success container">
+            <p><?= $_SESSION['edit-category-success'];
+                unset($_SESSION['edit-category-success']);
+                ?>
+            </p>
+        </div>
+        <!-- thông báo sửa bài viết lỗi -->
+        <?php elseif (isset($_SESSION['edit-category-error'])) : ?>
+        <div class="alert__message error container">
+            <p><?= $_SESSION['edit-category-errors'];
+                unset($_SESSION['edit-category-error']);
+                ?>
+            </p>
+        </div>
+        <!-- thông báo xóa bài viết thành công -->
+        <?php elseif (isset($_SESSION['delete-category-success'])) : ?>
+        <div class="alert__message success container">
+            <p><?= $_SESSION['delete-category-success'];
+                unset($_SESSION['delete-category-success']);
+                ?>
+            </p>
+        </div>
+        <!-- thông báo xóa bài viết không được -->
+        <?php elseif (isset($_SESSION['delete-category-error'])) : ?>
+        <div class="alert__message error container">
+            <p><?= $_SESSION['delete-category-errors'];
+                unset($_SESSION['delete-category-error']);
+                ?>
+            </p>
+        </div>
     <?php endif; ?>
     <div class="container dashboard__container">
         <button id="show__sidebar-btn" class="sidebar__toggle"><i class="uil uil-angle-right-b"></i></button>
@@ -48,7 +80,7 @@ $posts = mysqli_query($conn, $query);
                         </a>
                     </li>
                     <li>
-                        <a href="add-category.php"><i class="uil uil-edit"></i>
+                        <a href="add-post.php"><i class="uil uil-edit"></i>
                             <h5>Add Category</h5>
                         </a>
                     </li>
