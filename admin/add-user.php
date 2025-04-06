@@ -35,7 +35,6 @@ unset($_SESSION['add-user-data']);
       <input type="password" name="confirmpassword" value="<?= $confirmpassword ?>" placeholder="Confirm Password" />
       <!-- chỉ có admin mới có thể thêm người dùng admin -->
       <select name="userrole" value="<?= $userrole ?>">
-        <option value="" selected disabled>Select Role</option>
         <option value="0">Author</option>
         <option value="1">Admin</option>
       </select>

@@ -31,7 +31,7 @@ if (isset($_POST['submit'])) {
         $_SESSION['add-user'] = "Vui lòng nhập mật khẩu!";
     } elseif (empty($confirmpassword)) {
         $_SESSION['add-user'] = "Vui lòng nhập mật khẩu xác nhận!";
-    } elseif (empty($is_admin)) {
+    } elseif (!isset($_POST['userrole']) || $_POST['userrole'] === '') {
         $_SESSION['add-user'] = "Vui lòng chọn vai trò người dùng!";
     } elseif (strlen($createpassword) < 8) {
         $_SESSION['add-user'] = "Mật khẩu phải có ít nhất 8 ký tự!";
