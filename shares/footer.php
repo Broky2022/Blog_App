@@ -9,14 +9,15 @@
   <div class="container footer__container">
     <article>
       <h4>Thể loại</h4>
-      <ul>
-        <li><a href="">Đồ ăn</a></li>
-        <li><a href="">Âm nhạc</a></li>
-        <li><a href="">Giải trí</a></li>
-        <li><a href="">Thể thao</a></li>
-        <li><a href="">Điện tử</a></li>
-        <li><a href="">Khoa học</a></li>
-      </ul>
+      <?php
+      $catequery = "SELECT * FROM categories LIMIT 5";
+      $cates = mysqli_query($conn, $catequery);
+      ?>
+      <?php while ($cate = mysqli_fetch_assoc($cates)) : ?>
+        <ul>
+          <li><a href="<?= ROOT_URL ?>category-posts.php?id=<?= $cate['id'] ?>"><?= $cate['title'] ?></a></li>
+        </ul>
+      <?php endwhile ?>
     </article>
     <article>
       <h4>Support</h4>
