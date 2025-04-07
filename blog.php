@@ -12,10 +12,10 @@ $catequery = "SELECT * FROM categories";
 $cates = mysqli_query($conn, $catequery);
 ?>
 <section class="search__bar">
-  <form class="container search__bar-container" action="">
+  <form class="container search__bar-container" action="search.php" method="GET">
     <div>
       <i class="uil uil-search"></i>
-      <input type="search" name="" placeholder="Search" />
+      <input type="search" name="query" placeholder="Search" required />
     </div>
     <button type="submit" class="btn">Go</button>
   </form>
