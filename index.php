@@ -20,6 +20,7 @@ $cates = mysqli_query($conn, $catequery);
   <section class="featured">
     <div class="container featured__container" style="display: flex;  gap: 2rem;">
       <div class="post__info" style="flex: 1;">
+
         <!-- lấy thông tin category bằng id-->
         <?php
         $category_id = $featured['category_id'];
@@ -27,13 +28,17 @@ $cates = mysqli_query($conn, $catequery);
         $category_result = mysqli_query($conn, $category_query);
         $category = mysqli_fetch_assoc($category_result);
         ?>
-        <a href="<?= ROOT_URL ?>category-posts.php?id=<?= $category['id'] ?>" class="category__button"><?= $category['title'] ?></a>
-        <h2 class="post__title"><a href="<?= ROOT_URL ?>post.php?id=<?= $featured['id'] ?>"><?= $featured['title'] ?></a></h2>
+        <a href="<?= ROOT_URL ?>category-posts.php?id=<?= $featured['category_id'] ?>" class="category__button"><?= $category['title'] ?></a>
+
+        <!-- nội dung bài viết featured -->
+        <h2 class="post__title">
+          <a href="<?= ROOT_URL ?>post.php?id=<?= $featured['id'] ?>"><?= $featured['title'] ?></a>
+        </h2>
         <p class="post_body">
-          <?= substr($featured['body'], 0, 300) ?><a href="post.php"> - xem thêm</a>
+          <?= substr($featured['body'], 0, 300) ?><a href="<?= ROOT_URL ?>post.php?id=<?= $featured['id'] ?>"> - xem thêm</a>
         </p>
         <div class="post__author">
-          <!-- lấy thông tin category bằng id-->
+          <!-- lấy thông tin tác giả bằng id-->
           <?php
           $user_id = $featured['author_id'];
           $user_query = "SELECT * FROM users WHERE id = $user_id";
@@ -50,7 +55,7 @@ $cates = mysqli_query($conn, $catequery);
         </div>
       </div>
       <div class="post__thumbnail" style="flex: 1;">
-        <img src="./images/<?= $featured['thumbnail'] ?>" />
+        <img src="./images/<?= $featured['thumbnail'] ?> " />
       </div>
     </div>
   </section>
@@ -58,7 +63,7 @@ $cates = mysqli_query($conn, $catequery);
 
 
 
-<section class="posts">
+<section class="posts <?= $featured ? 'posts__extra-margin' : 'section__extra-margin' ?>">
   <div class="container posts_container">
     <?php while ($post = mysqli_fetch_assoc($posts)) : ?>
       <article class="post">
@@ -73,12 +78,14 @@ $cates = mysqli_query($conn, $catequery);
           $category_result = mysqli_query($conn, $category_query);
           $category = mysqli_fetch_assoc($category_result);
           ?>
-          <a href="category-posts.php" class="category__button"><?= $category['title'] ?></a>
+          <a href="<?= ROOT_URL ?>category-posts.php?id=<?= $post['category_id'] ?>" class="category__button"><?= $category['title'] ?></a>
+
+          <!-- nội dung bài viết -->
           <h3 class="post__title">
-            <a href="post.php"><?= $post['title'] ?></a>
+            <a href="<?= ROOT_URL ?>post.php?id=<?= $post['id'] ?>"><?= $post['title'] ?></a>
           </h3>
           <p class="post_body">
-          <?= substr($featured['body'], 0, 100) ?><a href="post.php"> - xem thêm</a>
+            <?= substr($post['body'], 0, 150) ?><a href="<?= ROOT_URL ?>post.php?id=<?= $post['id'] ?>"> - xem thêm</a>
           </p>
           <div class="post__author">
             <!-- lấy thông tin tác giả bằng id-->
@@ -93,7 +100,7 @@ $cates = mysqli_query($conn, $catequery);
             </div>
             <div class="post__author-info">
               <h5>By: <?= $user['lastname'] . ' ' . $user['firstname'] ?></h5>
-              <small><?= date(" H:i - d M, Y", strtotime($featured['date_time'])) ?></small>
+              <small><?= date(" H:i - d M, Y", strtotime($post['date_time'])) ?></small>
             </div>
           </div>
         </div>
@@ -105,7 +112,7 @@ $cates = mysqli_query($conn, $catequery);
 <section class="category__buttons">
   <div class="container category__buttons-container">
     <?php while ($cate = mysqli_fetch_assoc($cates)) : ?>
-      <a href="category-posts.php?id=<?= $cate['id'] ?>" class="category__button"> <?= $cate['title'] ?> </a>
+      <a href="<?= ROOT_URL ?>category-posts.php?id=<?= $cate['id'] ?>" class="category__button"> <?= $cate['title'] ?> </a>
     <?php endwhile ?>
   </div>
 </section>
