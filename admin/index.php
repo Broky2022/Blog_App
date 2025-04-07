@@ -80,7 +80,7 @@ $posts = mysqli_query($conn, $query);
                         </a>
                     </li>
                     <li>
-                        <a href="add-post.php"><i class="uil uil-edit"></i>
+                        <a href="add-category.php"><i class="uil uil-edit"></i>
                             <h5>Add Category</h5>
                         </a>
                     </li>

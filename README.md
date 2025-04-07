@@ -61,6 +61,7 @@ Blog_App/
 │   ├── manage-categories.php # Quản lý danh mục
 │   ├── manage-users.php    # Quản lý người dùng
 │   ├── index.php           # Trang quản lý bài viết
+│   ├── profile.php         # Trang hồ sơ người dùng
 │   ├── config/             # Cấu hình cơ sở dữ liệu
 │   │   ├── constains.php   # Hằng số (URL, thông tin DB)
 │   │   ├── database.php    # Kết nối cơ sở dữ liệu
@@ -93,35 +94,39 @@ Blog_App/
 ```
 
 ### Các chức năng chính
-1. Người dùng
-- Trang chủ (index.php):
-    - Hiển thị bài viết nổi bật và danh sách bài viết.
-    - Có các nút điều hướng đến các danh mục bài viết.
-- Đăng ký (signup.php):
-    - Người dùng nhập thông tin (họ tên, email, mật khẩu, avatar).
-    - Kiểm tra thông tin hợp lệ và lưu vào cơ sở dữ liệu.
-- Đăng nhập (signin.php):
-    - Người dùng nhập email hoặc tên đăng nhập và mật khẩu.
-    - Kiểm tra thông tin và tạo session.
-- Đăng xuất (logout.php):
-    - Xóa session và chuyển hướng về trang chủ.
-- Xem bài viết (post.php):
-     -Hiển thị chi tiết bài viết (tiêu đề, nội dung, tác giả, ngày đăng).
-- Tìm kiếm bài viết (blog.php):
-    - Hiển thị danh sách bài viết và cho phép tìm kiếm.
-2. Admin
-- Quản lý bài viết (admin/index.php):
-    - Hiển thị danh sách bài viết.
-    - Chỉnh sửa hoặc xóa bài viết.
-- Quản lý danh mục (admin/manage-categories.php):
-    - Hiển thị danh sách danh mục.
-    - Thêm, sửa, hoặc xóa danh mục.
-- Quản lý người dùng (admin/manage-users.php):
-    - Hiển thị danh sách người dùng.
-    - Thêm, sửa, hoặc xóa người dùng.
-- Thêm bài viết (admin/add-post.php):
-    - Nhập tiêu đề, nội dung, danh mục, và ảnh đại diện.
-- Thêm danh mục (admin/add-category.php):
-    - Nhập tên và mô tả danh mục.
-- Thêm người dùng (admin/add-user.php):
-    - Nhập thông tin người dùng (họ tên, email, mật khẩu, avatar).
+
+#### Người dùng
+- **Trang chủ (index.php):**
+  - Hiển thị bài viết nổi bật và danh sách bài viết.
+  - Có các nút điều hướng đến các danh mục bài viết.
+- **Đăng ký (signup.php):**
+  - Người dùng nhập thông tin (họ tên, email, mật khẩu, avatar).
+  - Kiểm tra thông tin hợp lệ và lưu vào cơ sở dữ liệu.
+- **Đăng nhập (signin.php):**
+  - Người dùng nhập email hoặc tên đăng nhập và mật khẩu.
+  - Kiểm tra thông tin và tạo session.
+- **Đăng xuất (logout.php):**
+  - Xóa session và chuyển hướng về trang chủ.
+- **Xem bài viết (post.php):**
+  - Hiển thị chi tiết bài viết (tiêu đề, nội dung, tác giả, ngày đăng).
+- **Tìm kiếm bài viết (search.php):**
+  - Hiển thị danh sách bài viết và cho phép tìm kiếm.
+
+#### Admin
+- **Quản lý bài viết (admin/index.php):**
+  - Hiển thị danh sách bài viết.
+  - Chỉnh sửa hoặc xóa bài viết.
+- **Quản lý danh mục (admin/manage-categories.php):**
+  - Hiển thị danh sách danh mục.
+  - Thêm, sửa, hoặc xóa danh mục.
+- **Quản lý người dùng (admin/manage-users.php):**
+  - Hiển thị danh sách người dùng.
+  - Thêm, sửa, hoặc xóa người dùng.
+- **Thêm bài viết (admin/add-post.php):**
+  - Nhập tiêu đề, nội dung, danh mục, và ảnh đại diện.
+- **Thêm danh mục (admin/add-category.php):**
+  - Nhập tên và mô tả danh mục.
+- **Thêm người dùng (admin/add-user.php):**
+  - Nhập thông tin người dùng (họ tên, email, mật khẩu, avatar).
+- **Hồ sơ người dùng (admin/profile.php):**
+  - Hiển thị và chỉnh sửa thông tin cá nhân của người dùng.
