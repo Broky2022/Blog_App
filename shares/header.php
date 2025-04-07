@@ -48,10 +48,12 @@ if (isset($_SESSION['user-id'])) {
               <img src="<?= ROOT_URL . 'images/' . $avatar ?>" alt="Avatar" />
             </div>
             <ul>
-              <li><a href="<?= ROOT_URL ?>admin/index.php">Dashboard</a></li>
+              <?php if (isset($_SESSION['user_is_admin'])) : ?>
+                <li><a href="<?= ROOT_URL ?>admin/index.php">Dashboard</a></li>
+              <?php endif; ?>
               <li><a href="<?= ROOT_URL ?>logout.php">Sign Out</a></li>
             </ul>
-          </li> 
+          </li>
         <?php else : ?>
           <li class="nav__item"><a href="<?= ROOT_URL ?>signin.php" class="nav__link">Sign In</a></li>
         <?php endif; ?>

@@ -9,7 +9,7 @@
 
 ### Mục đích dự án
 
-Dự án này là một ứng dụng blog cơ bản với các chức năng quản lý bài viết, danh mục, và người dùng. Nó phù hợp để học tập và mở rộng thêm các tính năng nâng cao như API, phân trang, hoặc giao diện hiện đại hơn.
+Dự án này là một ứng dụng blog cơ bản sử dụng PHP thuần kết hợp với MySQL với các chức năng quản lý bài viết, danh mục, và người dùng. Nó phù hợp để học tập và mở rộng thêm các tính năng nâng cao như API, phân trang, hoặc giao diện hiện đại hơn.
 
 ### Công nghệ sử dụng
 - PHP: Xử lý logic phía server.
@@ -22,6 +22,7 @@ Dự án này là một ứng dụng blog cơ bản với các chức năng qu�
 - Cài đặt XAMPP và khởi động Apache, MySQL.
 - Tạo cơ sở dữ liệu blog và nhập thông tin vào constains.php.
 - Đặt thư mục dự án vào htdocs.
+- Cần tạo thêm folder images để khi sử dụng nó sẽ lưu ảnh vào đó
 - Truy cập http://localhost/Blog_App/ trên trình duyệt.
 
 ## Vài câu lệnh git:
@@ -69,9 +70,17 @@ Blog_App/
 │   ├── constains.php       # Hằng số (URL, thông tin DB)
 │   ├── database.php        # Kết nối cơ sở dữ liệu
 ├── controller/             # Xử lý logic
-│   ├── adduser-controller.php # Xử lý thêm người dùng
-│   ├── signin-controller.php # Xử lý đăng nhập
-│   ├── signup-controller.php # Xử lý đăng ký
+│   ├── addcategory-controller.php # Xử lý thêm danh mục
+│   ├── addpost-controller.php     # Xử lý thêm bài viết
+│   ├── adduser-controller.php     # Xử lý thêm người dùng
+│   ├── delete-category-controller.php # Xử lý xóa danh mục
+│   ├── delete-post-controller.php      # Xử lý xóa bài viết
+│   ├── delete-user-controller.php      # Xử lý xóa người dùng
+│   ├── edit-category-controller.php    # Xử lý sửa danh mục
+│   ├── edit-post-controller.php        # Xử lý sửa bài viết
+│   ├── edit-user-controller.php        # Xử lý sửa người dùng
+│   ├── signin-controller.php           # Xử lý đăng nhập
+│   ├── signup-controller.php           # Xử lý đăng ký
 ├── css/                    # Tệp CSS
 │   ├── style.css           # Giao diện chính
 ├── images/                 # Thư mục chứa ảnh
