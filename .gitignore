@@ -4,3 +4,7 @@ vendor/
 .cursorignore
 # google-oauth 
 config/google-oauth.php
+# images
+images/*
+#.env
+.env

@@ -1,6 +1,10 @@
 <?php
 include 'config/constains.php';
 include 'config/google-oauth.php';
+require_once __DIR__ . '/config/session-manager.php';
+
+// Khởi tạo session với thời hạn 30 phút
+SessionManager::start(1800);
 
 $username_email = $_SESSION['signin-data']['username/email'] ?? null;
 $password = $_SESSION['signin-data']['password'] ?? null;
@@ -49,6 +53,7 @@ unset($_SESSION['signin-data']);
           </a>
         </div>
         <small>Don't have an account? <a href="signup.php">Sign Up</a></small>
+        <small><a href="forgot-password.php">Forgot Password?</a></small>
       </form>
     </div> 
   </section>
