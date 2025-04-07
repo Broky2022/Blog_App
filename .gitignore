@@ -1,0 +1,10 @@
+# dependency directory
+vendor/
+# cursor index
+.cursorignore
+# google-oauth 
+config/google-oauth.php
+# images
+images/*
+#.env
+.env

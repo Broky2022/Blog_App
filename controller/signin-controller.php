@@ -1,5 +1,15 @@
 <?php
 require '../config/database.php';
+require '../vendor/autoload.php';
+require '../config/mail.php';
+require '../config/session-manager.php';
+
+// Load environment variables
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
+$dotenv->load();
+
+// Khởi tạo session với thời hạn 30 phút
+SessionManager::start(1800);
 
 if (isset($_POST['submit'])) {
     // lấy thông tin từ form đăng nhập
@@ -22,16 +32,32 @@ if (isset($_POST['submit'])) {
             $db_password = $user_profile['password'];
             // kiểm tra mật khẩu có đúng không
             if (password_verify($password, $db_password)) {
-                // thiết lập session cho người dùng
-                $_SESSION['user-id'] = $user_profile['id'];
+                // Lưu thông tin người dùng vào session
+                $_SESSION['user_id'] = $user_profile['id'];
+                $_SESSION['user_email'] = $user_profile['email'];
+                
                 // thiết lập session nếu user là admin
                 if ($user_profile['is_admin'] == 1) {
                     $_SESSION['user_is_admin'] = true;
                 }
 
-                // chuyển hướng đến trang admin
-                // nếu người dùng là admin thì chuyển hướng đến trang admin
-                header('location: ' . ROOT_URL . 'admin/');
+                // Thiết lập thời hạn session dài hơn (2 giờ) cho người dùng đã đăng nhập
+                SessionManager::setTimeout(7200); // 2 giờ
+
+                // Kiểm tra xem người dùng có bật 2FA không
+                if ($user_profile['two_factor_enabled'] == 1) {
+                    // Chuyển hướng đến trang xác thực 2 bước
+                    header('location: ' . ROOT_URL . 'two-factor.php');
+                    exit;
+                }
+
+                // Nếu không bật 2FA, chuyển hướng đến trang admin hoặc trang chủ
+                if (isset($_SESSION['user_is_admin'])) {
+                    header('location: ' . ROOT_URL . 'admin/');
+                } else {
+                    header('location: ' . ROOT_URL);
+                }
+                exit;
             } else {
                 $_SESSION['signin'] = "Mật khẩu không đúng!";
             }

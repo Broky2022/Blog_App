@@ -48,7 +48,7 @@ if (isset($_POST['submit'])) {
                 $time = time(); //sử dụng thời gian thực làm tên mỗi hình ảnh
                 $avatar_name = $time . $avatar['name'];
                 $avatar_tmp_name = $avatar['tmp_name'];
-                $avatar_destination_path = '../images/' . $avatar_name;
+                $avatar_destination_path = '../images/' . $avatar_name; 
 
                 // kiểm tra file có phải là ảnh không
                 $allowed_files = ['png', 'jpg', 'jpeg'];
