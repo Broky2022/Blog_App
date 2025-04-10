@@ -27,10 +27,15 @@ $cates = mysqli_query($conn, $catequery);
         $category_query = "SELECT * FROM categories WHERE id = $category_id";
         $category_result = mysqli_query($conn, $category_query);
         $category = mysqli_fetch_assoc($category_result);
+
+        // Lấy số lượng like cho bài viết featured
+        $like_query = "SELECT COUNT(*) as like_count FROM likes WHERE post_id = " . $featured['id'];
+        $like_result = mysqli_query($conn, $like_query);
+        $like_count = mysqli_fetch_assoc($like_result)['like_count'];
         ?>
         <a href="<?= ROOT_URL ?>category-posts.php?id=<?= $featured['category_id'] ?>" class="category__button"><?= $category['title'] ?></a>
+        <span class="like-count"><?= $like_count ?> <i class="fas fa-heart"></i></span>
 
-        <!-- nội dung bài viết featured -->
         <h2 class="post__title">
           <a href="<?= ROOT_URL ?>post.php?id=<?= $featured['id'] ?>"><?= $featured['title'] ?></a>
         </h2>
@@ -61,8 +66,6 @@ $cates = mysqli_query($conn, $catequery);
   </section>
 <?php endif ?>
 
-
-
 <section class="posts <?= $featured ? 'posts__extra-margin' : 'section__extra-margin' ?>">
   <div class="container posts_container">
     <?php while ($post = mysqli_fetch_assoc($posts)) : ?>
@@ -77,8 +80,14 @@ $cates = mysqli_query($conn, $catequery);
           $category_query = "SELECT * FROM categories WHERE id = $category_id";
           $category_result = mysqli_query($conn, $category_query);
           $category = mysqli_fetch_assoc($category_result);
+
+          // Lấy số lượng like cho mỗi bài viết
+          $like_query = "SELECT COUNT(*) as like_count FROM likes WHERE post_id = " . $post['id'];
+          $like_result = mysqli_query($conn, $like_query);
+          $like_count = mysqli_fetch_assoc($like_result)['like_count'];
           ?>
           <a href="<?= ROOT_URL ?>category-posts.php?id=<?= $post['category_id'] ?>" class="category__button"><?= $category['title'] ?></a>
+          <span class="like-count"><?= $like_count ?> <i class="fas fa-heart"></i></span>
 
           <!-- nội dung bài viết -->
           <h3 class="post__title">
@@ -116,6 +125,71 @@ $cates = mysqli_query($conn, $catequery);
     <?php endwhile ?>
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const likeButtons = document.querySelectorAll('.like-btn');
+    
+    likeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const postId = this.dataset.postId;
+            const likeCount = this.querySelector('.like-count');
+            
+            fetch('controller/like.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'post_id=' + postId
+            })
+            .then(response => response.text())
+            .then(result => {
+                if (result === 'liked') {
+                    likeCount.textContent = parseInt(likeCount.textContent) + 1;
+                    this.classList.add('liked');
+                } else if (result === 'unliked') {
+                    likeCount.textContent = parseInt(likeCount.textContent) - 1;
+                    this.classList.remove('liked');
+                }
+            });
+        });
+    });
+});
+</script>
+
+<style>
+.like-section {
+    margin-top: 1rem;
+}
+
+.like-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #666;
+    transition: color 0.3s;
+}
+
+.like-btn:hover {
+    color: #ff4757;
+}
+
+.like-btn.liked {
+    color: #ff4757;
+}
+
+.like-count {
+    margin-left: 0.5rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.like-count i {
+    color: #ff4757;
+    margin-left: 0.2rem;
+}
+</style>
 
 <?php
 include 'shares/footer.php';
