@@ -33,7 +33,7 @@ if (isset($_POST['submit'])) {
             // kiểm tra mật khẩu có đúng không
             if (password_verify($password, $db_password)) {
                 // Lưu thông tin người dùng vào session
-                $_SESSION['user_id'] = $user_profile['id'];
+                $_SESSION['user-id'] = $user_profile['id'];
                 $_SESSION['user_email'] = $user_profile['email'];
                 
                 // thiết lập session nếu user là admin
