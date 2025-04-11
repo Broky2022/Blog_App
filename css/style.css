@@ -375,7 +375,7 @@ nav button {
 }
 
 .posts_container .post__content {
-    padding: 1.5rem;
+    padding: 2rem;
     background: var(--color-gray-900);
 }
 
@@ -414,6 +414,11 @@ nav button {
 
 .posts_container .post:hover .post__author-avatar {
     border-color: var(--color-white);
+}
+
+/* Adjusting padding for better spacing between text and post edges */
+.posts_container .post__infor {
+    padding: 1.5rem;
 }
 
 .category__buttons {
