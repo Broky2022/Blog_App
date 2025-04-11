@@ -2,11 +2,6 @@
 
 > [Classroom](https://classroom.google.com/u/0/c/NzQ5OTkyMzU3MTQy) [Docs](https://docs.google.com/spreadsheets/d/1UzBbwM3lt-sTwVuCZHm5MYIAFbV_Y6HGWXxu6OOtbzk/edit?gid=801622215#gid=801622215)
 
-```
-- 7/4/25 Nộp BC + Source code
-- 7h30, 9/4/25 Báo cáo đồ án
-```
-
 ### Mục đích dự án
 
 Dự án này là một ứng dụng blog cơ bản sử dụng PHP thuần kết hợp với MySQL với các chức năng quản lý bài viết, danh mục, và người dùng. Nó phù hợp để học tập và mở rộng thêm các tính năng nâng cao như API, phân trang, hoặc giao diện hiện đại hơn.
@@ -41,16 +36,6 @@ Dự án này là một ứng dụng blog cơ bản sử dụng PHP thuần kế
 
 ```
 Blog_App/
-├── about.php               # Trang "About"
-├── blog.php                # Trang danh sách bài viết
-├── category-posts.php      # Trang bài viết theo danh mục
-├── contact.php             # Trang "Contact"
-├── index.php               # Trang chủ
-├── logout.php              # Xử lý đăng xuất
-├── post.php                # Trang chi tiết bài viết
-├── services.php            # Trang "Services"
-├── signin.php              # Trang đăng nhập
-├── signup.php              # Trang đăng ký
 ├── admin/                  # Chức năng quản trị
 │   ├── add-category.php    # Thêm danh mục
 │   ├── add-post.php        # Thêm bài viết
@@ -58,18 +43,21 @@ Blog_App/
 │   ├── edit-category.php   # Sửa danh mục
 │   ├── edit-post.php       # Sửa bài viết
 │   ├── edit-user.php       # Sửa người dùng
+│   ├── index.php           # Trang quản lý bài viết
 │   ├── manage-categories.php # Quản lý danh mục
 │   ├── manage-users.php    # Quản lý người dùng
-│   ├── index.php           # Trang quản lý bài viết
-│   ├── profile.php         # Trang hồ sơ người dùng
 │   ├── config/             # Cấu hình cơ sở dữ liệu
 │   │   ├── constains.php   # Hằng số (URL, thông tin DB)
 │   │   ├── database.php    # Kết nối cơ sở dữ liệu
 │   ├── shares/             # Tệp dùng chung (header, footer)
-│   │   ├── header.php      # Header cho admin
+│       ├── header.php      # Header cho admin
 ├── config/                 # Cấu hình chung
 │   ├── constains.php       # Hằng số (URL, thông tin DB)
 │   ├── database.php        # Kết nối cơ sở dữ liệu
+│   ├── google-oauth.php    # Cấu hình Google OAuth
+│   ├── mail.php            # Cấu hình gửi email
+│   ├── session-manager.php # Quản lý session
+│   ├── update_users_table.sql # Tệp SQL cập nhật bảng người dùng
 ├── controller/             # Xử lý logic
 │   ├── addcategory-controller.php # Xử lý thêm danh mục
 │   ├── addpost-controller.php     # Xử lý thêm bài viết
@@ -80,6 +68,7 @@ Blog_App/
 │   ├── edit-category-controller.php    # Xử lý sửa danh mục
 │   ├── edit-post-controller.php        # Xử lý sửa bài viết
 │   ├── edit-user-controller.php        # Xử lý sửa người dùng
+│   ├── like.php                        # Xử lý lượt thích bài viết
 │   ├── signin-controller.php           # Xử lý đăng nhập
 │   ├── signup-controller.php           # Xử lý đăng ký
 ├── css/                    # Tệp CSS
@@ -87,9 +76,28 @@ Blog_App/
 ├── images/                 # Thư mục chứa ảnh
 ├── js/                     # Tệp JavaScript
 │   ├── main.js             # Tương tác giao diện
+├── public/                 # Giao diện người dùng
+│   ├── about.php           # Trang "About"
+│   ├── blog.php            # Trang danh sách bài viết
+│   ├── category-posts.php  # Trang bài viết theo danh mục
+│   ├── contact.php         # Trang "Contact"
+│   ├── forgot-password.php # Trang quên mật khẩu
+│   ├── google-callback.php # Xử lý callback Google OAuth
+│   ├── index.php           # Trang chủ
+│   ├── logout.php          # Xử lý đăng xuất
+│   ├── post.php            # Trang chi tiết bài viết
+│   ├── reset-password.php  # Trang đặt lại mật khẩu
+│   ├── search.php          # Trang tìm kiếm bài viết
+│   ├── services.php        # Trang "Services"
+│   ├── signin.php          # Trang đăng nhập
+│   ├── signup.php          # Trang đăng ký
+│   ├── two-factor.php      # Trang xác thực hai yếu tố
 ├── shares/                 # Tệp dùng chung
 │   ├── footer.php          # Footer cho người dùng
 │   ├── header.php          # Header cho người dùng
+├── vendor/                 # Thư viện bên thứ ba (autoload, Google API, Firebase, v.v.)
+├── composer.json           # Tệp cấu hình Composer
+├── composer.lock           # Tệp khóa Composer
 ├── README.md               # Tài liệu dự án
 ```
 
