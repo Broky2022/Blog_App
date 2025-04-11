@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
     // kiểm tra xem các trường có rỗng hay không
     if (empty($username_email) || empty($password)) {
         $_SESSION['signin'] = "Vui lòng điền đầy đủ thông tin!";
-        header('location: ' . ROOT_URL . 'signin.php');
+        header('location: ' . ROOT_URL . 'public/signin.php');
         exit;
     } else {
         // kiểm tra username or email có hợp lệ không
@@ -47,7 +47,7 @@ if (isset($_POST['submit'])) {
                 // Kiểm tra xem người dùng có bật 2FA không
                 if ($user_profile['two_factor_enabled'] == 1) {
                     // Chuyển hướng đến trang xác thực 2 bước
-                    header('location: ' . ROOT_URL . 'two-factor.php');
+                    header('location: ' . ROOT_URL . 'public/two-factor.php');
                     exit;
                 }
 
@@ -69,10 +69,10 @@ if (isset($_POST['submit'])) {
     // nếu có lỗi thì lưu lại dữ liệu để hiển thị lại cho người dùng
     if (isset($_SESSION['signin'])) {
         $_SESSION['signin-data'] = $_POST;
-        header('location: ' . ROOT_URL . 'signin.php');
+        header('location: ' . ROOT_URL . 'public/signin.php');
         exit;
     }
 } else {
-    header('location: ' . ROOT_URL . 'signin.php');
+    header('location: ' . ROOT_URL . 'public/signin.php');
     exit;
 } 

@@ -1,5 +1,5 @@
 <?php
-include 'shares/header.php';
+include __DIR__ . '/../shares/header.php';
 
 if (!$conn) {
   die("Kết nối database thất bại: " . mysqli_connect_error());
@@ -26,7 +26,7 @@ $cates = mysqli_query($conn, $catequery);
     <?php while ($post = mysqli_fetch_assoc($posts)) : ?>
       <article class="post">
         <div class="post__thumbnail">
-          <img src="./images/<?= $post['thumbnail'] ?>" />
+          <img src="../images/<?= $post['thumbnail'] ?>" />
         </div>
         <div class="post__infor">
           <!-- lấy thông tin category bằng id-->
@@ -36,14 +36,14 @@ $cates = mysqli_query($conn, $catequery);
           $category_result = mysqli_query($conn, $category_query);
           $category = mysqli_fetch_assoc($category_result);
           ?>
-          <a href="<?= ROOT_URL ?>category-posts.php?id=<?= $post['category_id'] ?>" class="category__button"><?= $category['title'] ?></a>
+          <a href="<?= ROOT_URL ?>public/category-posts.php?id=<?= $post['category_id'] ?>" class="category__button"><?= $category['title'] ?></a>
 
           <!-- nội dung bài viết -->
           <h3 class="post__title">
-            <a href="<?= ROOT_URL ?>post.php?id=<?= $post['id'] ?>"><?= $post['title'] ?></a>
+            <a href="<?= ROOT_URL ?>public/post.php?id=<?= $post['id'] ?>"><?= $post['title'] ?></a>
           </h3>
           <p class="post_body">
-          <?= substr($post['body'], 0, 150) ?><a href="<?= ROOT_URL ?>post.php?id=<?= $post['id'] ?>"> - xem thêm</a>
+          <?= substr($post['body'], 0, 150) ?><a href="<?= ROOT_URL ?>public/post.php?id=<?= $post['id'] ?>"> - xem thêm</a>
           </p>
           <div class="post__author">
             <!-- lấy thông tin tác giả bằng id-->
@@ -54,7 +54,7 @@ $cates = mysqli_query($conn, $catequery);
             $user = mysqli_fetch_assoc($user_result);
             ?>
             <div class="post__author-avatar">
-              <img src="./images/<?= $user['avatar'] ?>" />
+              <img src="../images/<?= $user['avatar'] ?>" />
             </div>
             <div class="post__author-info">
               <h5>By: <?= $user['lastname'] . ' ' . $user['firstname'] ?></h5>
@@ -70,10 +70,10 @@ $cates = mysqli_query($conn, $catequery);
 <section class="category__buttons">
   <div class="container category__buttons-container">
     <?php while ($cate = mysqli_fetch_assoc($cates)) : ?>
-      <a href="<?= ROOT_URL ?>category-posts.php?id=<?= $cate['id'] ?>" class="category__button"> <?= $cate['title'] ?> </a>
+      <a href="<?= ROOT_URL ?>public/category-posts.php?id=<?= $cate['id'] ?>" class="category__button"> <?= $cate['title'] ?> </a>
     <?php endwhile ?>
   </div>
 </section>
 <?php
-include 'shares/footer.php';
+include __DIR__ . '/../shares/footer.php';
 ?>

@@ -1,6 +1,6 @@
 <?php
-include 'config/constains.php';
-include 'config/google-oauth.php';
+include __DIR__ . '/../config/constains.php';
+include __DIR__ . '/../config/google-oauth.php';
 // Check for signup errors
 $signup_error = $_SESSION['signup'] ?? null;
 

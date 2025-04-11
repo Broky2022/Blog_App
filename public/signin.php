@@ -1,7 +1,7 @@
 <?php
-include 'config/constains.php';
-include 'config/google-oauth.php';
-require_once __DIR__ . '/config/session-manager.php';
+include __DIR__ . '/../config/constains.php';
+include __DIR__ . '/../config/google-oauth.php';
+require_once __DIR__ . '/../config/session-manager.php';
 
 // Khởi tạo session với thời hạn 30 phút
 SessionManager::start(1800);

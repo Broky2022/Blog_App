@@ -1,5 +1,5 @@
 <?php
-include 'shares/header.php';
+include __DIR__ . '/../shares/header.php';
 
 if (!$conn) {
   die("Kết nối database thất bại: " . mysqli_connect_error());
@@ -31,14 +31,14 @@ if (isset($_GET['query'])) {
       <?php while ($post = mysqli_fetch_assoc($search_results)) : ?>
         <article class="post">
           <div class="post__thumbnail">
-            <img src="./images/<?= $post['thumbnail'] ?>" />
+            <img src="../images/<?= $post['thumbnail'] ?>" />
           </div>
           <div class="post__infor">
             <h3 class="post__title">
-              <a href="<?= ROOT_URL ?>post.php?id=<?= $post['id'] ?>"><?= $post['title'] ?></a>
+              <a href="<?= ROOT_URL ?>public/post.php?id=<?= $post['id'] ?>"><?= $post['title'] ?></a>
             </h3>
             <p class="post_body">
-              <?= substr($post['body'], 0, 150) ?><a href="<?= ROOT_URL ?>post.php?id=<?= $post['id'] ?>"> - xem thêm</a>
+              <?= substr($post['body'], 0, 150) ?><a href="<?= ROOT_URL ?>public/post.php?id=<?= $post['id'] ?>"> - xem thêm</a>
             </p>
           </div>
         </article>
@@ -50,5 +50,5 @@ if (isset($_GET['query'])) {
 </section>
 
 <?php
-include 'shares/footer.php';
+include __DIR__ . '/../shares/footer.php';
 ?>

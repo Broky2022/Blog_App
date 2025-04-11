@@ -1,5 +1,5 @@
 <?php
-include 'shares/header.php';
+include __DIR__ . '/../shares/header.php';
 ?>
 
 <section class="empty__page">
@@ -9,5 +9,5 @@ include 'shares/header.php';
   <p>PHP, MySQL, HTML/CSS, JavaScript, XAMPP</p>
 </section>
 <?php
-include 'shares/footer.php';
+include __DIR__ . '/../shares/footer.php';
 ?>

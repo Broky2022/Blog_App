@@ -74,7 +74,7 @@ if (isset($_POST['submit'])) {
     if (isset($_SESSION['signup'])) {
         // nếu có lỗi thì chuyển hướng về trang đăng ký
         $_SESSION['signup-data'] = $_POST; // lưu lại thông tin đã nhập
-        header('location: ' . ROOT_URL . 'signup.php');
+        header('location: ' . ROOT_URL . 'public/signup.php');
         exit;
     } else {
         // thêm người dùng vào database
@@ -86,11 +86,11 @@ if (isset($_POST['submit'])) {
             $_SESSION['user_id'] = mysqli_insert_id($conn);
             $_SESSION['user'] = $username;
             $_SESSION['signup-success'] = "Đăng ký thành công!";
-            header('location: ' . ROOT_URL . 'signin.php');
+            header('location: ' . ROOT_URL . 'public/signin.php');
             exit;
         } else {
             $_SESSION['signup'] = "Có lỗi xảy ra trong quá trình đăng ký!";
-            header('location: ' . ROOT_URL . 'signup.php');
+            header('location: ' . ROOT_URL . 'public/signup.php');
             exit;
         }
 
@@ -111,6 +111,6 @@ if (isset($_POST['submit'])) {
     }
 } else {
     // nếu không có thông tin từ form thì chuyển hướng về trang đăng ký
-    header('location: ' . ROOT_URL . 'signup.php');
+    header('location: ' . ROOT_URL . 'public/signup.php');
     exit;
 }

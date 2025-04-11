@@ -1,6 +1,6 @@
 <?php
-require_once 'config/google-oauth.php';
-require_once 'config/constains.php';
+require_once '../config/google-oauth.php';
+require_once '../config/constains.php';
 
 // Kiểm tra kết nối database
 if (!$conn) {
@@ -77,14 +77,14 @@ if (isset($_GET['code'])) {
                 header('location: ' . ROOT_URL);
             } else {
                 $_SESSION['signin'] = "Đăng ký thất bại. Vui lòng thử lại.";
-                header('location: ' . ROOT_URL . 'signin.php');
+                header('location: ' . ROOT_URL . 'public/signin.php');
             }
         }
     } catch (Exception $e) {
         $_SESSION['signin'] = "Có lỗi xảy ra: " . $e->getMessage();
-        header('location: ' . ROOT_URL . 'signin.php');
+        header('location: ' . ROOT_URL . 'public/signin.php');
     }
 } else {
-    header('location: ' . ROOT_URL . 'signin.php');
+    header('location: ' . ROOT_URL . 'public/signin.php');
 }
 ?> 

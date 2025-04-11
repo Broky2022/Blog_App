@@ -1,5 +1,5 @@
 <?php
-    require 'config/constains.php';
+    require '../config/constains.php';
 
     // Xóa session người dùng và trở về home page
     session_destroy();

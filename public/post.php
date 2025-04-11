@@ -1,5 +1,5 @@
 <?php
-include 'shares/header.php';
+include __DIR__ . '/../shares/header.php';
 
 if (isset($_GET['id'])) {
     $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
@@ -38,7 +38,7 @@ if (isset($_GET['id'])) {
             $author = mysqli_fetch_assoc($author_result);
             ?>
             <div class="post__author-avatar">
-                <img src="./images/<?= $author['avatar'] ?>" />
+                <img src="../images/<?= $author['avatar'] ?>" />
             </div>
             <div class="post__author-info">
                 <h5>By: <?= "{$author['firstname']} {$author['lastname']}" ?></h5>
@@ -46,7 +46,7 @@ if (isset($_GET['id'])) {
             </div>
         </div>
         <div class="singlepost__thumbnail">
-            <img src="./images/<?= $post['thumbnail'] ?>" />
+            <img src="../images/<?= $post['thumbnail'] ?>" />
         </div>
         <p><?= $post['body'] ?></p>
     </div>
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const postId = this.dataset.postId;
         const likeCount = this.querySelector('.like-count');
         
-        fetch('controller/like.php', {
+        fetch('../controller/like.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
@@ -146,5 +146,5 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <?php
-include 'shares/footer.php';
+include __DIR__ . '/../shares/footer.php';
 ?>

@@ -15,7 +15,7 @@
       ?>
       <?php while ($cate = mysqli_fetch_assoc($cates)) : ?>
         <ul>
-          <li><a href="<?= ROOT_URL ?>category-posts.php?id=<?= $cate['id'] ?>"><?= $cate['title'] ?></a></li>
+          <li><a href="<?= ROOT_URL ?>public/category-posts.php?id=<?= $cate['id'] ?>"><?= $cate['title'] ?></a></li>
         </ul>
       <?php endwhile ?>
     </article>

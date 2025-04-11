@@ -1,8 +1,8 @@
 <?php
-include 'shares/header.php';
+include __DIR__ . '/../shares/header.php';
 
 if (!isset($_GET['id'])) {
-    header('location: ' . ROOT_URL . 'blog.php');
+    header('location: ' . ROOT_URL . 'public/blog.php');
     exit;
 } else {
     $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
@@ -33,15 +33,15 @@ if (!isset($_GET['id'])) {
         <?php while ($post = mysqli_fetch_assoc($posts)) : ?>
             <article class="post">
                 <div class="post__thumbnail">
-                    <img src="./images/<?= $post['thumbnail'] ?>" />
+                    <img src="../images/<?= $post['thumbnail'] ?>" />
                 </div>
                 <div class="post__infor">
                     <!-- nội dung bài viết -->
                     <h3 class="post__title">
-                        <a href="<?= ROOT_URL ?>post.php?id=<?= $post['id'] ?>"><?= $post['title'] ?></a>
+                        <a href="<?= ROOT_URL ?>public/post.php?id=<?= $post['id'] ?>"><?= $post['title'] ?></a>
                     </h3>
                     <p class="post_body">
-                        <?= substr($post['body'], 0, 150) ?><a href="<?= ROOT_URL ?>post.php?id=<?= $post['id'] ?>"> - xem thêm</a>
+                        <?= substr($post['body'], 0, 150) ?><a href="<?= ROOT_URL ?>public/post.php?id=<?= $post['id'] ?>"> - xem thêm</a>
                     </p>
                     <div class="post__author">
                         <!-- lấy thông tin tác giả bằng id-->
@@ -52,7 +52,7 @@ if (!isset($_GET['id'])) {
                         $user = mysqli_fetch_assoc($user_result);
                         ?>
                         <div class="post__author-avatar">
-                            <img src="./images/<?= $user['avatar'] ?>" />
+                            <img src="../images/<?= $user['avatar'] ?>" />
                         </div>
                         <div class="post__author-info">
                             <h5>By: <?= $user['lastname'] . ' ' . $user['firstname'] ?></h5>
@@ -66,5 +66,5 @@ if (!isset($_GET['id'])) {
 </section>
 
 <?php
-include 'shares/footer.php';
+include __DIR__ . '/../shares/footer.php';
 ?>

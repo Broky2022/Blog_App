@@ -1,5 +1,5 @@
 <?php
-require 'config/database.php';
+require '../config/database.php';
 
 if (isset($_SESSION['user-id'])) {
   $id = filter_var($_SESSION['user-id'], FILTER_SANITIZE_NUMBER_INT);
@@ -30,16 +30,16 @@ if (isset($_SESSION['user-id'])) {
       <a href="<?= ROOT_URL ?>" class="nav__logo">Blog Web</a>
       <ul class="nav__items">
         <li class="nav__item">
-          <a href="<?= ROOT_URL ?>blog.php" class="nav__link">Blog</a>
+          <a href="<?= ROOT_URL ?>public/blog.php" class="nav__link">Blog</a>
         </li>
         <li class="nav__item">
-          <a href="<?= ROOT_URL ?>about.php" class="nav__link">About</a>
+          <a href="<?= ROOT_URL ?>public/about.php" class="nav__link">About</a>
         </li>
         <li class="nav__item">
-          <a href="<?= ROOT_URL ?>services.php" class="nav__link">Services</a>
+          <a href="<?= ROOT_URL ?>public/services.php" class="nav__link">Services</a>
         </li>
         <li class="nav__item">
-          <a href="<?= ROOT_URL ?>contact.php" class="nav__link">Contact</a>
+          <a href="<?= ROOT_URL ?>public/contact.php" class="nav__link">Contact</a>
         </li>
         <?php
         if (isset($_SESSION['user-id'])) : ?>
@@ -49,11 +49,11 @@ if (isset($_SESSION['user-id'])) {
             </div>
             <ul>
               <li><a href="<?= ROOT_URL ?>admin/index.php">Dashboard</a></li>
-              <li><a href="<?= ROOT_URL ?>logout.php">Sign Out</a></li>
+              <li><a href="<?= ROOT_URL ?>public/logout.php">Sign Out</a></li>
             </ul>
           </li>
         <?php else : ?>
-          <li class="nav__item"><a href="<?= ROOT_URL ?>signin.php" class="nav__link">Sign In</a></li>
+          <li class="nav__item"><a href="<?= ROOT_URL ?>public/signin.php" class="nav__link">Sign In</a></li>
         <?php endif; ?>
       </ul>
       <button id="open__nav-btn"><i class="uil uil-bars"></i></button>
