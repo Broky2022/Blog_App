@@ -11,6 +11,11 @@ if (isset($_GET['id'])) {
     $like_query = "SELECT COUNT(*) as like_count FROM likes WHERE post_id = $id";
     $like_result = mysqli_query($conn, $like_query);
     $like_count = mysqli_fetch_assoc($like_result)['like_count'];
+
+    // Fetch comments for the post
+    $comments_query = "SELECT comments.*, users.firstname, users.lastname, users.avatar FROM comments JOIN users ON comments.user_id = users.id WHERE comments.post_id = $id ORDER BY comments.created_at DESC";
+    $comments_result = mysqli_query($conn, $comments_query);
+    $comments = mysqli_fetch_all($comments_result, MYSQLI_ASSOC);
 } else {
     header('location: ' . ROOT_URL);
     die();
@@ -49,6 +54,32 @@ if (isset($_GET['id'])) {
             <img src="../images/<?= $post['thumbnail'] ?>" />
         </div>
         <p><?= $post['body'] ?></p>
+
+        <!-- Comments Section -->
+        <div class="comments-section">
+            <h3>Comments</h3>
+            <ul class="comments-list">
+                <?php foreach ($comments as $comment): ?>
+                    <li class="comment">
+                        <div class="comment-avatar">
+                            <img src="../images/<?= $comment['avatar'] ?>" alt="User Avatar">
+                        </div>
+                        <div class="comment-content">
+                            <h5><?= $comment['firstname'] . ' ' . $comment['lastname'] ?></h5>
+                            <small><?= date("M d, Y - H:i", strtotime($comment['created_at'])) ?></small>
+                            <p><?= $comment['content'] ?></p>
+                        </div>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+
+            <!-- Add Comment Form -->
+            <form action="../controller/comment.php" method="POST" class="add-comment-form">
+                <input type="hidden" name="post_id" value="<?= $id ?>">
+                <textarea name="content" rows="4" placeholder="Write your comment here..." required></textarea>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
     </div>
 </section>
 
@@ -113,6 +144,68 @@ if (isset($_GET['id'])) {
     0% { transform: scale(1); }
     50% { transform: scale(1.2); }
     100% { transform: scale(1); }
+}
+
+.comments-section {
+    margin-top: 2rem;
+}
+
+.comments-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+}
+
+.comment {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.comment-avatar img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.comment-content {
+    flex: 1;
+}
+
+.comment-content h5 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.comment-content small {
+    color: #666;
+    font-size: 0.875rem;
+}
+
+.comment-content p {
+    margin: 0.5rem 0 0;
+}
+
+.add-comment-form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.add-comment-form .btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-comment-form .btn:hover {
+    background-color: #0056b3;
 }
 </style>
 
