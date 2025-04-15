@@ -1,10 +1,10 @@
 <?php
-require_once __DIR__ . '/vendor/autoload.php';
-require_once __DIR__ . '/config/database.php';
-require_once __DIR__ . '/config/session-manager.php';
+require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../config/session-manager.php';
 
 // Load environment variables
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
 
 // Khởi tạo session với thời hạn 30 phút
@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <button type="submit" class="btn">Reset Password</button>
             </form>
             
-            <small>Remember your password? <a href="signin.php">Sign In</a></small>
+            <small>Remember your password? <a href="public/signin.php">Sign In</a></small>
         </div>
     </section>
 </body>

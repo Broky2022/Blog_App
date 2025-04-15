@@ -1,11 +1,11 @@
 <?php
-require_once __DIR__ . '/vendor/autoload.php';
-require_once __DIR__ . '/config/mail.php';
-require_once __DIR__ . '/config/database.php';
-require_once __DIR__ . '/config/session-manager.php';
+require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../config/mail.php';
+require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../config/session-manager.php';
 
 // Load environment variables
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
 
 // Khởi tạo session với thời hạn 30 phút
@@ -18,7 +18,7 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
 if (SessionManager::isExpired()) {
     SessionManager::clear();
     $_SESSION['error'] = "Phiên làm việc đã hết hạn. Vui lòng thử lại.";
-    header('Location: forgot-password.php');
+    header('Location: /Blog_App/public/forgot-password.php');
     exit;
 }
 
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Validate email
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $_SESSION['error'] = "Invalid email address";
-        header('Location: forgot-password.php');
+        header('Location: /Blog_App/public/forgot-password.php');
         exit;
     }
     
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     if (!$result || mysqli_num_rows($result) === 0) {
         $_SESSION['error'] = "Email address not found";
-        header('Location: forgot-password.php');
+        header('Location: /Blog_App/public/forgot-password.php');
         exit;
     }
     
@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     if (!mysqli_query($conn, $update_query)) {
         $_SESSION['error'] = "Something went wrong. Please try again.";
-        header('Location: forgot-password.php');
+        header('Location: /Blog_App/public/forgot-password.php');
         exit;
     }
     
@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['error'] = "Failed to send reset email";
     }
     
-    header('Location: forgot-password.php');
+    header('Location: /Blog_App/public/forgot-password.php');
     exit;
 }
 ?>
@@ -112,8 +112,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <button type="submit" class="btn">Send Reset Link</button>
             </form>
             
-            <small>Remember your password? <a href="signin.php">Sign In</a></small>
+            <small>Remember your password? <a href="public/signin.php">Sign In</a></small>
         </div>
     </section>
 </body>
-</html> 
+</html>

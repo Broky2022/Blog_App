@@ -16,14 +16,14 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
 
 // Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
-    header('Location: signin.php');
+    header('Location: public/signin.php');
     exit;
 }
 
 // Kiểm tra nếu session đã hết hạn
 if (SessionManager::isExpired()) {
     SessionManager::clear();
-    header('Location: signin.php');
+    header('Location: public/signin.php');
     exit;
 }
 
@@ -37,7 +37,7 @@ if (isset($_GET['resend']) && $_GET['resend'] == 1) {
     $_SESSION['success'] = "Đã gửi lại mã xác thực mới.";
     
     // Chuyển hướng để tránh gửi lại khi refresh
-    header('Location: two-factor.php');
+    header('Location: public/two-factor.php');
     exit;
 }
 
@@ -97,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['error'] = "Mã xác thực đã hết hạn";
             unset($_SESSION['2fa_code']);
             unset($_SESSION['2fa_expires']);
-            header('Location: two-factor.php');
+            header('Location: public/two-factor.php');
             exit;
         }
     } else {
@@ -135,7 +135,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
             <p>Chúng tôi đã gửi mã xác thực đến email của bạn. Vui lòng nhập mã vào ô bên dưới:</p>
             
-            <form method="POST" action="two-factor.php">
+            <form method="POST" action="<?= ROOT_URL ?>public/two-factor.php">
                 <div class="form__control">
                     <input type="text" name="code" placeholder="Nhập mã 6 chữ số" required maxlength="6" pattern="[0-9]{6}">
                 </div>
@@ -143,8 +143,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <button type="submit" class="btn">Xác thực</button>
             </form>
             
-            <p>Không nhận được mã? <a href="two-factor.php?resend=1">Gửi lại</a></p>
+            <p>Không nhận được mã? <a href="<?= ROOT_URL ?>public/two-factor.php?resend=1">Gửi lại</a></p>
         </div>
     </section>
 </body>
-</html> 
+</html>

@@ -1,5 +1,6 @@
 <?php
 require_once '../config/google-oauth.php';
+require_once '../vendor/autoload.php'; // Ensure the Google API Client Library is autoloaded
 require_once '../config/constains.php';
 
 // Kiểm tra kết nối database
@@ -54,7 +55,7 @@ if (isset($_GET['code'])) {
             if (mysqli_stmt_execute($stmt)) {
                 $user_id = mysqli_insert_id($conn);
                 $_SESSION['user-id'] = $user_id;
-                $_SESSION['user_is_admin'] = 0;
+                $_SESSION['user_is_admin'] = false;
                 
                 // Gửi email thông báo tài khoản đã được tạo
                 $to = $email;
